@@ -2,7 +2,7 @@
 A GUI wrapper for voltageshift  
 or you can also call it a hackintosh performance manager  
   
-just click, edit preset for your liking, and have it easy to switch between performance modes
+just click, edit preset for your liking, and have it easy to switch between performance modes  
 NOTE: uses [SeptemberHX's voltageshift fork](https://github.com/SeptemberHX/VoltageShift) to write the MCHBAR value so the CPU unlocks its full potential
 
 ## features
