@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DF8C8E9D28C260700084E695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8C8E9C28C260700084E695 /* AppDelegate.swift */; };
+		DF8C8EA028C260700084E695 /* grypsztal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF8C8E9E28C260700084E695 /* grypsztal.xcdatamodeld */; };
+		DF8C8EA228C260730084E695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF8C8EA128C260730084E695 /* Assets.xcassets */; };
+		DF8C8EA528C260730084E695 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF8C8EA328C260730084E695 /* MainMenu.xib */; };
+		DF9DEEF028C263850000D96D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9DEEEC28C263850000D96D /* ViewController.swift */; };
+		DF9DEEF228C263850000D96D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9DEEEE28C263850000D96D /* main.swift */; };
+		DF9DEEF328C263850000D96D /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF9DEEEF28C263850000D96D /* Preferences.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DF8C8E9928C260700084E695 /* grypsztal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grypsztal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF8C8E9C28C260700084E695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DF8C8E9F28C260700084E695 /* grypsztal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = grypsztal.xcdatamodel; sourceTree = "<group>"; };
+		DF8C8EA128C260730084E695 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DF8C8EA628C260730084E695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF8C8EA728C260730084E695 /* grypsztal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = grypsztal.entitlements; sourceTree = "<group>"; };
+		DF9DEEEC28C263850000D96D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DF9DEEEE28C263850000D96D /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		DF9DEEEF28C263850000D96D /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DF8C8E9628C260700084E695 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DF8C8E9028C260700084E695 = {
+			isa = PBXGroup;
+			children = (
+				DF8C8E9B28C260700084E695 /* grypsztal */,
+				DF8C8E9A28C260700084E695 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DF8C8E9A28C260700084E695 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF8C8E9928C260700084E695 /* grypsztal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF8C8E9B28C260700084E695 /* grypsztal */ = {
+			isa = PBXGroup;
+			children = (
+				DF9DEEEE28C263850000D96D /* main.swift */,
+				DF9DEEEF28C263850000D96D /* Preferences.xib */,
+				DF9DEEEC28C263850000D96D /* ViewController.swift */,
+				DF8C8E9C28C260700084E695 /* AppDelegate.swift */,
+				DF8C8EA128C260730084E695 /* Assets.xcassets */,
+				DF8C8EA328C260730084E695 /* MainMenu.xib */,
+				DF8C8EA628C260730084E695 /* Info.plist */,
+				DF8C8EA728C260730084E695 /* grypsztal.entitlements */,
+				DF8C8E9E28C260700084E695 /* grypsztal.xcdatamodeld */,
+			);
+			path = grypsztal;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DF8C8E9828C260700084E695 /* grypsztal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF8C8EAA28C260730084E695 /* Build configuration list for PBXNativeTarget "grypsztal" */;
+			buildPhases = (
+				DF8C8E9528C260700084E695 /* Sources */,
+				DF8C8E9628C260700084E695 /* Frameworks */,
+				DF8C8E9728C260700084E695 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = grypsztal;
+			productName = grypsztal;
+			productReference = DF8C8E9928C260700084E695 /* grypsztal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DF8C8E9128C260700084E695 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					DF8C8E9828C260700084E695 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = DF8C8E9428C260700084E695 /* Build configuration list for PBXProject "grypsztal" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DF8C8E9028C260700084E695;
+			productRefGroup = DF8C8E9A28C260700084E695 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DF8C8E9828C260700084E695 /* grypsztal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DF8C8E9728C260700084E695 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF8C8EA228C260730084E695 /* Assets.xcassets in Resources */,
+				DF8C8EA528C260730084E695 /* MainMenu.xib in Resources */,
+				DF9DEEF328C263850000D96D /* Preferences.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DF8C8E9528C260700084E695 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF9DEEF028C263850000D96D /* ViewController.swift in Sources */,
+				DF8C8EA028C260700084E695 /* grypsztal.xcdatamodeld in Sources */,
+				DF9DEEF228C263850000D96D /* main.swift in Sources */,
+				DF8C8E9D28C260700084E695 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DF8C8EA328C260730084E695 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DF8C8EA428C260730084E695 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DF8C8EA828C260730084E695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DF8C8EA928C260730084E695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		DF8C8EAB28C260730084E695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = grypsztal/grypsztal.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = grypsztal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kodowiec.grypsztal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DF8C8EAC28C260730084E695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = grypsztal/grypsztal.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = grypsztal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kodowiec.grypsztal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DF8C8E9428C260700084E695 /* Build configuration list for PBXProject "grypsztal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF8C8EA828C260730084E695 /* Debug */,
+				DF8C8EA928C260730084E695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF8C8EAA28C260730084E695 /* Build configuration list for PBXNativeTarget "grypsztal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF8C8EAB28C260730084E695 /* Debug */,
+				DF8C8EAC28C260730084E695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DF8C8E9E28C260700084E695 /* grypsztal.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DF8C8E9F28C260700084E695 /* grypsztal.xcdatamodel */,
+			);
+			currentVersion = DF8C8E9F28C260700084E695 /* grypsztal.xcdatamodel */;
+			path = grypsztal.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DF8C8E9128C260700084E695 /* Project object */;
+}
