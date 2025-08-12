@@ -154,7 +154,6 @@
 		DF8C8EA328C260730084E695 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF8C8EA428C260730084E695 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -291,7 +290,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kodowiec.grypsztal;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kodowiec.grypsztal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -311,7 +310,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kodowiec.grypsztal;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kodowiec.grypsztal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

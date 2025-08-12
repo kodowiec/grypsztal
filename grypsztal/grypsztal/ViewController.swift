@@ -45,6 +45,8 @@ class PrefsViewController: NSViewController, NSTextFieldDelegate
 
     @IBOutlet weak var cbTurboBoost : NSButton!
     @IBOutlet weak var cbMCHBAR : NSButton!
+    
+    @IBOutlet weak var cbRunAsSudo : NSButton!
 
     @IBOutlet weak var imagePreview : NSImageView!
 
@@ -95,6 +97,8 @@ class PrefsViewController: NSViewController, NSTextFieldDelegate
 
         cbTurboBoost?.state = (currentPreset.turbo) ? NSControl.StateValue.on : NSControl.StateValue.off
         cbMCHBAR?.state = (currentPreset.mchbar) ? NSControl.StateValue.on : NSControl.StateValue.off
+        
+        cbRunAsSudo?.state = (appDelegate.config.runAsAdmin ?? true) ? NSControl.StateValue.on : NSControl.StateValue.off
 
         imagePreview.image = NSImage(systemSymbolName: currentPreset.icon, accessibilityDescription: "preset icon")
 
@@ -121,6 +125,7 @@ class PrefsViewController: NSViewController, NSTextFieldDelegate
         pres.offset.cache = Int(editPresetCache.stringValue)!
         appDelegate.config.presets[presetDropdown.indexOfSelectedItem] = pres
         appDelegate.config.binarypath = editBinaryPath.stringValue
+        appDelegate.config.runAsAdmin = cbRunAsSudo.state == NSControl.StateValue.on
         currentPreset = pres
         setDropdownItems()
         appDelegate.setupMenus()

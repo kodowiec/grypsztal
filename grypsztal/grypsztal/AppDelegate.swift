@@ -21,6 +21,7 @@ struct ConfigFile : Codable
     var defaultpreset : String
     var presets : Array<Preset>
     var binarypath : String?
+    var runAsAdmin : Bool?
     
     struct Preset : Codable
     {
@@ -137,11 +138,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 
                 presets.append(ConfigFile.Preset(name: "preset1", icon: "1.circle", shortcut: "1", pl1: 18, pl2: 26, turbo: true, mchbar: false, offset: defaultOffset))
                 
-                config = ConfigFile(loadonstart: false, defaultpreset: "preset1", presets: presets)
+                config = ConfigFile(loadonstart: false, defaultpreset: "preset1", presets: presets, runAsAdmin: true)
                 
                 writeConfigFile()
             }
             try config = jsonDecoder.decode(ConfigFile.self, from: Data(contentsOf: configFileLocation))
+            
+            config.runAsAdmin = config.runAsAdmin ?? true
         }
         catch { print(error) }
     }
@@ -167,7 +170,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func appSupportDirCheck()
     {
         let applicationSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-        let bundleID = Bundle.main.bundleIdentifier ?? "kodowiec.grypsztal"
+        let bundleID = Bundle.main.bundleIdentifier ?? "net.kodowiec.grypsztal"
         let appSupportSubDirectory = applicationSupport.appendingPathComponent(bundleID,isDirectory: true)
         
         if !(FileManager.default.fileExists(atPath: appSupportSubDirectory.path))
@@ -242,108 +245,77 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         alert.addButton(withTitle: "OK")
         return alert.runModal() == .alertFirstButtonReturn
     }
-
-    @objc func printVSInfo()
-    {
-        let binaryPath = (config.binarypath == nil || config.binarypath!.isEmpty) ? "voltageshift" : config.binarypath
-        let getInfoASCommand = """
-            do shell script \"
-            sudo \(binaryPath) info
-        \" with administrator privileges
+    
+    func executeAppleScript(script: String, sudo: Bool, showFailedAlert: Bool = true, showSuccessAlert: Bool = false) -> (success: Bool, output: String) {
+        let command = """
+        do shell script "\(sudo ? "sudo " : "")\(script)" \(sudo ? "with administrator privileges" : "")
         """
-        
         var error: NSDictionary?
-        let scriptObject = NSAppleScript(source: getInfoASCommand)!
+        let scriptObject = NSAppleScript(source: command)!
         let output : NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error)
         
         if (error != nil)
         {
-            dialogError(question: "", text: error!.description)
-            print(error)
+            let errorMessage = error!["NSAppleScriptErrorMessage"] as? String ?? error!.description
+            debugPrint(error ?? output)
+            if (showFailedAlert) {
+                let _ = dialogError(question: "", text: errorMessage)
+            }
+            return (false, errorMessage)
         }
         else
         {
-            dialogOKCancel(question: "", text: output.stringValue ?? "")
-            print(output)
+            debugPrint(output)
+            if (showSuccessAlert)
+            {
+                let _ = dialogOKCancel(question: "", text: output.stringValue ?? error!.description)
+            }
+            return (true, output.stringValue ?? "")
         }
+    }
+
+    @objc func printVSInfo()
+    {
+        let binaryPath = (config.binarypath == nil || config.binarypath!.isEmpty) ? "voltageshift" : config.binarypath
+        
+        let _ = executeAppleScript(script: "\(binaryPath ?? "voltageshift") info", sudo: config.runAsAdmin ?? true, showFailedAlert: true, showSuccessAlert: true)
     }
     
     @objc public func writeMCHBAR()
     {
         let binaryPath = (config.binarypath == nil || config.binarypath!.isEmpty) ? "voltageshift" : config.binarypath
         
-        var error: NSDictionary?
-        let so610 = NSAppleScript(source: """
-            do shell script \"
-            sudo \(binaryPath!) read 0x610
-             \" with administrator privileges
-            """)!
-        let get610 : NSAppleEventDescriptor = so610.executeAndReturnError(&error)
+        let read610 = executeAppleScript(script: "\(binaryPath!) read 0x610", sudo: config.runAsAdmin ?? true)
         
-        if (error != nil)
+        if (read610.success)
         {
-            dialogError(question: "", text: error!.description)
-            print(error)
-        }
-        else
-        {
-            var output610 = get610.stringValue!
-            print(output610)
+            var output610 = read610.output
             output610 = output610.replacingOccurrences(of: " ", with: "")
             output610 = output610.replacingOccurrences(of: "(", with: "")
             output610 = output610.replacingOccurrences(of: ")", with: "")
             let intfrom610 = UInt64(output610, radix: 2)
             let hexval = String(intfrom610!, radix: 16, uppercase: false)
-            print(hexval)
+            debugPrint(hexval)
             
-            let applyMCHBARASCommand = """
-                do shell script \"
-                sudo \(binaryPath!) wrmem 0xfed159a0 0x\(hexval)
-                sudo \(binaryPath!) wrmem 0xfed159a4 0x\(hexval)
-             \" with administrator privileges
+            let command = """
+                \(binaryPath!) wrmem 0xfed159a0 0x\(hexval) && \(binaryPath!) wrmem 0xfed159a4 0x\(hexval)
             """
             
-            var error: NSDictionary?
-            let scriptObject = NSAppleScript(source: applyMCHBARASCommand)!
-            let output : NSAppleEventDescriptor =  scriptObject.executeAndReturnError(&error)
-            
-            if (error != nil)
-            {
-                dialogError(question: "", text: error!.description)
-                print(error)
-            }
-            else { print(output) }
+            let _ = executeAppleScript(script: command, sudo: config.runAsAdmin ?? true)
         }
     }
     
     public func applyPreset(_ preset : ConfigFile.Preset) -> Bool
     {
         let binaryPath = (config.binarypath == nil || config.binarypath!.isEmpty) ? "voltageshift" : config.binarypath
-        // sudo \(binaryPath) offset \(preset.offset.cpu) \(preset.offset.gpu) \(preset.offset.cache) \(preset.offset.sa) \(preset.offset.aio) \(preset.offset.dio)
         let applyASCommand = """
-            do shell script \"
-            sudo \(binaryPath!) turbo \(preset.turbo ? "1" : "0")
-            sudo \(binaryPath!) power \(preset.pl1) \(preset.pl2)
-            sudo \(binaryPath!) offset \(preset.offset.cpu) \(preset.offset.gpu) \(preset.offset.cache)
-         \" with administrator privileges
+            \(binaryPath!) turbo \(preset.turbo ? "1" : "0") && \(binaryPath!) power \(preset.pl1) \(preset.pl2) && \(binaryPath!) offset \(preset.offset.cpu) \(preset.offset.gpu) \(preset.offset.cache)
         """
         
-        var error: NSDictionary?
-        let scriptObject = NSAppleScript(source: applyASCommand)!
-        let output : NSAppleEventDescriptor =  scriptObject.executeAndReturnError(&error)
+        let execute = executeAppleScript(script: applyASCommand, sudo: config.runAsAdmin ?? true, showFailedAlert: true)
         
-        if (error != nil)
-        {
-            dialogError(question: "", text: error!.description)
-            print(error)
-            return false
-        }
-        else
-        {
-            print(output)
-            if (preset.mchbar) { writeMCHBAR() }
-            return true
-        }
+        if (execute.success && preset.mchbar) { writeMCHBAR() }
         
+        return execute.success
     }
 }
